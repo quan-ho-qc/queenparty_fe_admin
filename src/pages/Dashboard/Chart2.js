@@ -25,7 +25,7 @@ componentDidMount() {
       <div className="card">
         <div style={{ width: '100%' }}>
           <LineChart
-            width={950}
+            width={1200}
             height={300}
             data={ [
               { name: 'Tháng 1', uv: this.state.chart2.month1 },

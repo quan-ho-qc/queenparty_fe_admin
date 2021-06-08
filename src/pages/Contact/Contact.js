@@ -35,7 +35,7 @@ class Contact extends Component {
 
 
     componentDidMount() {
-        axios.get('admin_vendor')
+        axios.get('admin_contact')
         .then(res => {
             this.setState({
                 contacts: res.data.data
@@ -73,7 +73,7 @@ class Contact extends Component {
                                 <nav aria-label="breadcrumb">
                                     <ul className="breadcrumb">
                                         <li className="breadcrumb-item active" aria-current="page">
-                                            <span />Tổng Quan <i className="mdi mdi-alert-circle-outline icon-sm text-primary align-middle" />
+                                            <span />Tổng quan <i className="mdi mdi-alert-circle-outline icon-sm text-primary align-middle" />
                                         </li>
                                     </ul>
                                 </nav>

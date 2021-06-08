@@ -4,13 +4,12 @@ class Cards extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            total_card: [], 
-            id:''
+            total_card: [],
+            totalRe:''
         };
-        var retrievedData = localStorage.getItem("User");
-        var user = JSON.parse(retrievedData);
-        this.state.id = user[0].id;
-        axios.get('total_card/'+this.state.id)
+    }
+    componentDidMount() {
+        axios.get('total_card')
         .then(res => {
             this.setState({
                 total_card: res.data
@@ -28,7 +27,7 @@ class Cards extends Component {
                         <div className="card bg-gradient-danger card-img-holder text-white">
                             <div className="card-body">
                                 <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
-                                <h4 className="font-weight-normal mb-3">Tổng số khách hàng<i className="mdi mdi-chart-line mdi-24px float-right" />
+                                <h4 className="font-weight-normal mb-3">Tổng số người dùng<i className="mdi mdi-chart-line mdi-24px float-right" />
                                 </h4>
                                 <h2 className="mb-5">{this.state.total_card.totalUser}</h2>
                             </div>

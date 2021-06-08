@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 class Login extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            User: []
-        };
-    }
-    submit = (e) => {
-        e.preventDefault();
-        const data = {
-            email:this.email,
-            password:this.password
+            email: '',
+            password: ''
         }
+    }
+    onChangeHandler = (event) => {
+        let nam = event.target.name;
+        let val = event.target.value;
+        if (nam === "img") {
+            val = "image/" + event.target.files[0].name;
+        }
+        this.setState({ [nam]: val });
+    }
 
-        axios.post('auth/vendorLogin',data)
-            .then((res) => {
-                this.setState({
-                    User: res.data
-                });
-                if(this.state.User[0].status === "Chờ phê duyệt"){
-                    alert("Chào mừng bạn đến với QueenParty!");
-                    localStorage.setItem("User", JSON.stringify(this.state.User));
-                    this.props.history.push("/update_profile");
-                }else{
-                    localStorage.setItem("User", JSON.stringify(this.state.User));
-                    alert("Đăng nhập thành công!");
-                    this.props.history.push("/dashboard");
-                }
-               
-            }).catch((error) => {
-                alert("Vui Kiểm tra lại thông tin đăng nhập!");
-                console.log(error);
-            })
+    submit = (event) => {
+        if(this.state.email === "admin@gmail.com" && this.state.password === "admin"){
+            alert("Đăng nhập thành công");
+            this.props.history.push("/dashboard");
+        }else{
+            alert("Đăng nhập thất bại, xin vui lòng thử lại!");
+        }
     }
     render() {
         return (
@@ -44,22 +33,21 @@ class Login extends Component {
                             <div className="col-lg-4 mx-auto">
                                 <div className="auth-form-light text-left p-5">
                                     <div className="brand-logo">
-                                        QueenParty - Nhà Cung Cấp
+                                        QueenParty - Admin
                                     </div>
                                     <h4>Vui lòng đăng nhập!</h4>
                                     <form className="pt-3" onSubmit={this.submit}>
                                         <div className="form-group">
                                             <input type="email" required className="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" 
-                                                   name="email" onChange={e=>this.email= e.target.value}/>
+                                                   name="email" value={this.props.email} onChange={(e) => this.onChangeHandler(e)}/>
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" required className="form-control form-control-lg" id="exampleInputPassword1" placeholder="Mật khẩu" 
-                                                    name="password" onChange={e=>this.password= e.target.value}/>
+                                            <input type="password" required className="form-control form-control-lg" id="exampleInputPassword1" placeholder="Mật khẩu ....." 
+                                                   name="password" value={this.props.password} onChange={(e) => this.onChangeHandler(e)}/>
                                         </div>
                                         <div className="mt-3">
                                             <button className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">ĐĂNG NHẬP</button>
                                         </div>
-                                        <div className="text-center mt-4 font-weight-light"> Bạn chưa có tài khoản? <Link to="/register" className="nav-link">Tạo ngay</Link></div>
                                     </form>
                                 </div>
                             </div>
