@@ -8,7 +8,7 @@ class OrderDetail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.location.state.id,
+            user_id: this.props.location.state.user_id,
             vendor_id: this.props.location.state.vendor_id,
             orders: [],
             name:this.props.location.state.name,
@@ -20,36 +20,23 @@ class OrderDetail extends Component {
             note:this.props.location.state.note,
             total:''
         };
-        
-        axios.get('order_detail/'+this.state.id+'/'+this.state.vendor_id)
-        .then(res => {
-            this.setState({
-                orders: res.data[0]
-            });
-            this.setState({
-                total: res.data[1]
-            });
-            console.log(this.state.total)
-        })
-        .catch((error) => {
-        console.log(error);
-        })
+
+        alert(this.state.user_id);
+        alert(this.state.vendor_id);
+        axios.get('order_detail/'+this.state.user_id+'/'+this.state.vendor_id)
+         .then(res => {
+             this.setState({
+                 orders: res.data[0]
+             });
+             this.setState({
+                 total: res.data[1]
+             });
+             console.log(this.state.total)
+         })
+         .catch((error) => {
+         console.log(error);
+         })
     }
-    // componentDidMount() {
-    //      axios.get('order_detail/'+this.state.id+'/'+this.state.vendor_id)
-    //     .then(res => {
-    //         this.setState({
-    //             orders: res.data[0]
-    //         });
-    //         this.setState({
-    //             total: res.data[1]
-    //         });
-    //         console.log(this.state.total)
-    //     })
-    //     .catch((error) => {
-    //     console.log(error);
-    //     })
-    //}
     render() {
         return (
             <div className="container-scroller">

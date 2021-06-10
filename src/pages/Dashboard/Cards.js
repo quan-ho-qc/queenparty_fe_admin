@@ -5,7 +5,6 @@ class Cards extends Component {
         super(props)
         this.state = {
             total_card: [],
-            totalRe:''
         };
     }
     componentDidMount() {
@@ -29,7 +28,7 @@ class Cards extends Component {
                                 <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
                                 <h4 className="font-weight-normal mb-3">Tổng số người dùng<i className="mdi mdi-chart-line mdi-24px float-right" />
                                 </h4>
-                                <h2 className="mb-5">{this.state.total_card.totalUser}</h2>
+                                <h2 className="mb-5">{this.state.total_card[0]}</h2>
                             </div>
                         </div>
                     </div>
@@ -39,7 +38,7 @@ class Cards extends Component {
                             <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
                             <h4 className="font-weight-normal mb-3">Tổng số đơn hàng<i className="mdi mdi-bookmark-outline mdi-24px float-right" />
                             </h4>
-                            <h2 className="mb-5">{this.state.total_card.totalOrder}</h2>
+                            <h2 className="mb-5">{this.state.total_card[1]}</h2>
                         </div>
                     </div>
                 </div>
@@ -49,7 +48,7 @@ class Cards extends Component {
                             <img src="assets/images/dashboard/circle.svg" className="card-img-absolute" alt="circle-image" />
                             <h4 className="font-weight-normal mb-3">Doanh thu<i className="mdi mdi-diamond mdi-24px float-right" />
                             </h4>
-                            <h2 className="mb-5">{this.state.total_card.totalRevenue} VND</h2>
+                            <h2 className="mb-5">{this.state.total_card[2]} VND</h2>
                         </div>
                         </div>
                     </div>

@@ -5,7 +5,6 @@ import Chart2 from './Chart2';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import SideBar from '../../components/SideBar/SideBar';
-import ListTopVendor from './ListTopVendor';
 class Dashboard extends Component {
     render() {
         return (
@@ -32,7 +31,6 @@ class Dashboard extends Component {
                             <Cards/>
                             <h4>Người dùng mới</h4>
                             <Chart2/>
-                            <ListTopVendor/>
                         </div>
                         <Footer/>
                     </div>

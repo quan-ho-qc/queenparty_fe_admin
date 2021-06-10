@@ -86,7 +86,7 @@ class VendorListOrder extends Component {
                                                     <tr className="table-info"key={index}>
                                                         <td> ĐH{index+1} </td>
                                                         <td>
-                                                            <Link to={{pathname:'/order_detail', state: {vendor_id: this.state.id, id:item.id, name:item.name, phone:item.phone, address:item.address, created_at:item.created_at, order_time:item.order_time, status:item.status, note:item.note}}} className="nav-link">
+                                                            <Link to={{pathname:'/order_detail', state: {vendor_id: this.state.id, user_id:item.user_id, name:item.name, phone:item.phone, address:item.address, created_at:item.created_at, order_time:item.order_time, status:item.status, note:item.note}}} className="nav-link">
                                                                 {item.name}
                                                             </Link>
                                                         </td>
