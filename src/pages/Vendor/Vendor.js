@@ -84,13 +84,7 @@ class Vendor extends Component {
                                         <h5 className="page-title">
                                             Danh sách nhà cung cấp
                                         </h5>
-                                        <nav aria-label="breadcrumb">
-                                            <Link to="/add_vendor" className="nav-link">
-                                                <h5 className="page-title">
-                                                    Thêm mới
-                                                </h5>
-                                            </Link>
-                                        </nav>
+
                                     </div>
                                     <table className="table table-striped">
                                     <thead>
